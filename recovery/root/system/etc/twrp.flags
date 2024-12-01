@@ -3,7 +3,7 @@
 /system_image   emmc    /dev/block/mapper/system					    flags=slotselect
 
 # Userdata/Metadata partitions
-/metadata       ext4    /dev/block/by-name/metadata                                         flags=display="Metadata"
+/metadata       ext4    /dev/block/by-name/metadata                                         flags=display="Metadata";backup=1
 /storage	ext4    /data/media/0							    flags=display="Internal Storage";backup;removable;usermrf;fsflags="bind,utf8"
 
 # Other partitions
