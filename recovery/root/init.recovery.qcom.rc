@@ -25,6 +25,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
+on init
+    start boot-hal-1-2
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -72,3 +77,6 @@ on property:vendor.sys.listeners.registered=true
     start vendor.gatekeeper_default
     start vendor.keymint-qti
     start vendor.weaver_nxp
+
+on property:twrp.decrypt.done=true
+    start modules_mount
